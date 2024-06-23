@@ -39,15 +39,14 @@ defmodule FoodTrucksWeb.FoodTrucksController do
     }
 
     conn
-    |> put_status(:ok)
+    |> put_status(200)
     |> json(api_description)
   end
 
   def show_all(conn, _params) do
     food_trucks = Repo.all(FoodTruck)
-
     conn
-    |> put_status(:ok)
+    |> put_status(200)
     |> json(food_trucks)
   end
 
@@ -55,12 +54,12 @@ defmodule FoodTrucksWeb.FoodTrucksController do
     case Repo.get_by(FoodTruck, locationid: locationid) do
       nil ->
         conn
-        |> put_status(:not_found)
+        |> put_status(404)
         |> json(%{message: "Food truck not found"})
 
       food_truck ->
         conn
-        |> put_status(:ok)
+        |> put_status(200)
         |> json(food_truck)
     end
   end
@@ -74,7 +73,7 @@ defmodule FoodTrucksWeb.FoodTrucksController do
     food_trucks = Repo.all(query)
 
     conn
-    |> put_status(:ok)
+    |> put_status(200)
     |> json(food_trucks)
   end
 
@@ -89,7 +88,7 @@ defmodule FoodTrucksWeb.FoodTrucksController do
     food_trucks = Repo.all(query)
 
     conn
-    |> put_status(:ok)
+    |> put_status(200)
     |> json(food_trucks)
   end
 
@@ -97,19 +96,19 @@ defmodule FoodTrucksWeb.FoodTrucksController do
     case Repo.get_by(FoodTruck, locationid: locationid) do
       nil ->
         conn
-        |> put_status(:not_found)
+        |> put_status(404)
         |> json(%{message: "Food truck not found"})
 
       food_truck ->
         case Repo.delete(food_truck) do
           {:ok, _food_truck} ->
             conn
-            |> put_status(:ok)
+            |> put_status(200)
             |> json(%{message: "Food truck deleted successfully"})
 
           {:error, _changeset} ->
             conn
-            |> put_status(:internal_server_error)
+            |> put_status(500)
             |> json(%{message: "Failed to delete food truck"})
         end
     end
@@ -122,14 +121,14 @@ defmodule FoodTrucksWeb.FoodTrucksController do
     case Repo.insert(changeset) do
       {:ok, food_truck} ->
         conn
-        |> put_status(:created)
+        |> put_status(201)
         |> json(%{message: "Food truck created successfully", food_truck: food_truck})
 
       {:error, changeset} ->
         errors = transform_errors(changeset.errors)
 
         conn
-        |> put_status(:unprocessable_entity)
+        |> put_status(422)
         |> json(%{message: "Failed to create food truck", errors: errors})
     end
   end
@@ -138,7 +137,7 @@ defmodule FoodTrucksWeb.FoodTrucksController do
     case Repo.get_by(FoodTruck, locationid: locationid) do
       nil ->
         conn
-        |> put_status(:not_found)
+        |> put_status(404)
         |> json(%{message: "Food truck not found"})
 
       food_truck ->
@@ -147,14 +146,14 @@ defmodule FoodTrucksWeb.FoodTrucksController do
         case Repo.update(changeset) do
           {:ok, _food_truck} ->
             conn
-            |> put_status(:ok)
+            |> put_status(200)
             |> json(%{message: "Food truck updated successfully"})
 
           {:error, changeset} ->
             errors = transform_errors(changeset.errors)
 
             conn
-            |> put_status(:unprocessable_entity)
+            |> put_status(404)
             |> json(%{message: "Failed to update food truck", errors: errors})
         end
     end
