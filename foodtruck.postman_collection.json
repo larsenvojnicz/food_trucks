@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "787a73b7-8b8f-4513-b04e-3c958ce00f2f",
+		"name": "Food Truck",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36490069"
+	},
+	"item": [
+		{
+			"name": "DELETE TRUCK",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/food_trucks/364218",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"food_trucks",
+						"364218"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CHANGE EXISTING TRUCK",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"food_truck\": {\n    \"status\": \"SUSPEND\",\n    \"address\": \"123 New Address\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/food_trucks/735315",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"food_trucks",
+						"735315"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD NEW TRUCK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"food_truck\":{\n    \"block\": \"4829\",\n    \"status\": \"REQUESTED\",\n    \"address\": \"Brace Jugovic 11\",\n    \"location\": \"(37.72716806878196, -122.39002914870102)\",\n    \"permit\": \"17MFF-0182\",\n    \"approved\": \"\",\n    \"y\": 2092759.875,\n    \"x\": 6015093.0,\n    \"locationid\": 36363636,\n    \"applicant\": \"Singh Brothers Ice Cream and Tacos\",\n    \"latitude\": 37.727169036865234,\n    \"longitude\": -122.39002990722656,\n    \"cnn\": 13356000,\n    \"received\": 20170418,\n    \"prior_permit\": 1,\n    \"fire_prevention_districts\": 10,\n    \"police_districts\": 3,\n    \"supervisor_districts\": 8,\n    \"zip_codes\": 58,\n    \"neighborhoods\": 1,\n    \"location_description\": \"WALLACE AVE: JENNINGS ST to KEITH ST (1500 - 1599)\",\n    \"schedule\": \"http://bsm.sfdpw.org/PermitsTracker/reports/report.aspx?title=schedule&report=rptSchedule&params=permit=17MFF-0182&ExportPDF=1&Filename=17MFF-0182_schedule.pdf\",\n    \"facility_type\": \"Truck\",\n    \"blocklot\": \"4829006\",\n    \"lot\": \"6\",\n    \"dayshours\": \"Mo-Fr:2PM-3PM\",\n    \"noi_sent\": \"\",\n    \"expiration_date\": \"03/15/2018 12:00:00 AM\",\n    \"food_items\": \"Ice Cream: Pre-Packaged Chips: Candies: Bottled Water & Canned SODA\"\n}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/food_trucks/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"food_trucks",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET INDIVIDUAL TRUCK",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/food_trucks/36363636",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"food_trucks",
+						"36363636"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL TRUCKS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"food_truck\": {\"koko\": 3, \"coco\": 56}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/food_trucks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"food_trucks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET TRUCKS BY STATUS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"food_truck\": {\"koko\": 3, \"coco\": 56}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/food_trucks/status/expired",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"food_trucks",
+						"status",
+						"expired"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET FIREPREVENTION BY DISTRICT",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000//food_trucks/fireprevention/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"",
+						"food_trucks",
+						"fireprevention",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
